@@ -1,0 +1,62 @@
+<div class="anunciante-container flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 m-2 p-4">
+    <img class="anunciante-img object-cover rounded-t-lg h-96 h-auto md:rounded-none md:rounded-s-lg" [src]="anunciante?.IMAGE" alt="">
+    <div class="flex flex-col justify-between ps-4 leading-normal">
+        <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ anunciante?.NAME }}</h5>
+        <p class="mb-2">{{anunciante?.ADDRESS}}</p>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ anunciante?.ACTIVITY }}</p>
+        {{anunciante?.ID}}
+        <div class="text-gray-500 flex">
+            @if (anunciante?.PHONE_1 || anunciante?.PHONE_2 || anunciante?.PHONE_3) {
+                    Teléfono(s): &nbsp;
+                <a [href]="'tel:' + anunciante?.PHONE_1">{{anunciante?.PHONE_1}} </a>
+                @if (anunciante?.PHONE_2) {
+                    &nbsp;/&nbsp; <a [href]="'tel:' + anunciante?.PHONE_2">{{anunciante?.PHONE_2}} </a>
+                }
+                @if (anunciante?.PHONE_3) {
+                    &nbsp;/&nbsp; <a [href]="'tel:' + anunciante?.PHONE_3">{{anunciante?.PHONE_3}} </a>
+                }
+            } @else {
+                El anunciante no cuenta con teléfonos por el momento.
+            }
+        </div>
+        
+        <hr class="w-full"/>
+        <div class="icons-container">
+            @if (anunciante?.MAPS) {
+                <a [href]="anunciante?.MAPS" target="_blank">
+                    <i class="bi bi-geo-alt"></i>
+                </a>
+            }
+            @if (anunciante?.YOUTUBE) {
+                <a [href]="anunciante?.YOUTUBE" target="_blank">
+                    <i class="bi bi-youtube"></i>
+                </a>
+            }
+            @if (anunciante?.FACEBOOK) {
+                <a [href]="anunciante?.FACEBOOK" target="_blank">
+                    <i class="bi bi-facebook"></i>
+                </a>
+            }
+            @if (anunciante?.TIKTOK) {
+                <a [href]="anunciante?.TIKTOK" target="_blank">
+                    <i class="bi bi-tiktok"></i>
+                </a>
+            }
+            @if (anunciante?.INSTAGRAM) {
+                <a [href]="anunciante?.INSTAGRAM" target="_blank">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            }
+            @if (anunciante?.PAGE) {
+                <a [href]="anunciante?.PAGE" target="_blank">
+                    <i class="bi bi-window-fullscreen">Web</i>
+                </a>
+            }
+            @if (anunciante?.WHATSAPP) {
+                <a [href]="anunciante?.WHATSAPP" target="_blank">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+header{
+    background-color: var(--primary-color);
+}
+
+nav .active{
+    font-weight: bolder;
+    text-decoration: underline;
+}
+
+nav a.logo span{
+    color: white;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+@media (prefers-color-scheme: light) {
+    nav .active{
+        color: white !important;
+    }
+    
+  }

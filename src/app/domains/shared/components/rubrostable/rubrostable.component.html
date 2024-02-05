@@ -1,0 +1,26 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th class="p-5 w-1/2">
+                    Rubro
+                </th>
+                <th class="p-5 w-1/2">
+                    Subrubro
+                </th>
+            </tr>
+        </thead>
+        <tbody >
+            @for (subrubro of subrubros; track $index) {
+                <tr [routerLink]="['/subrubro', subrubro.ID]" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 cursor-pointer">
+                    <td class="p-5 w-1/2">
+                        {{ rubroService.getRubroNameById(subrubro.RUBRO_ID) }}
+                    </td>
+                    <td class="p-5 w-1/2">
+                        {{ subrubro.NAME }}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
