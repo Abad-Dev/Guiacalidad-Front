@@ -1,25 +1,46 @@
-import { Component, Input, inject, signal } from '@angular/core';
+import { Component, Input, computed, inject, signal } from '@angular/core';
 import { RubroService } from '../../../shared/services/rubro.service';
 import { SubRubro } from '../../../shared/models/subrubro.model';
+import { RubrostableComponent } from '../../../shared/components/rubrostable/rubrostable.component';
+import { AnuncianteService } from '../../../shared/services/anunciante.service';
+import { AnuncianteComponent } from '../../../anunciantes/components/anunciante/anunciante.component';
+import { Anunciante } from '../../../shared/models/anunciante.model';
+import { RouterLinkWithHref } from '@angular/router';
+import { Rubro } from '../../../shared/models/rubro.model';
 
 @Component({
   selector: 'app-subrubro',
   standalone: true,
-  imports: [],
+  imports: [RubrostableComponent, AnuncianteComponent, RouterLinkWithHref],
   templateUrl: './subrubro.component.html',
   styleUrl: './subrubro.component.css'
 })
 export class SubrubroComponent {
   @Input({ required: true }) id?: number;
+  anuncianteService = inject(AnuncianteService);
   rubroService = inject(RubroService);
 
-  subrubro = signal<SubRubro | null>(null);
+  subrubro = computed<SubRubro>(() => {
+    const subrubros = this.rubroService.subrubros();
+    const id = this.id;
 
-  ngOnInit() {
-    this.rubroService.getSubRubroById(this.id!)
-      .subscribe((subrubro) => {
-        this.subrubro.set(subrubro);
-      });
-  }
+    return this.rubroService.getSubRubroById(id)!;
+  })
+  
+  rubro = computed<Rubro | undefined>(() => {
+    const subrubro = this.subrubro();
+    const rubros = this.rubroService.rubros();
+    if (subrubro == undefined){
+      return undefined
+    }
+    
+    return this.rubroService.getRubroById(subrubro.RUBRO_ID)!;
+  })
 
+  anunciantes = computed<Anunciante[]>(() => {
+    const anunciantes = this.anuncianteService.anunciantes();
+    const rels = this.anuncianteService.relSubAnunciantes();
+
+    return this.anuncianteService.getAnunciantesBySubRubroId(this.id)!;
+  })
 }

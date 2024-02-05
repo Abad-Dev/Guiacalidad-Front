@@ -31,9 +31,19 @@ export class RubroService {
   getAllSubRubros() {
     return this.http.get<SubRubro[]>(this.apiUrl+'/sub-rubro');
   }
+
+  getRubroById(id: number | undefined) {
+    if (!id){
+      return null;
+    }
+    return this.rubros().find(rubro => rubro.ID == id);
+  }
   
-  getSubRubroById(id: number){
-    return this.http.get<SubRubro>(this.apiUrl+'/sub-rubro/'+id);
+  getSubRubroById(id: number | undefined) {
+    if (!id){
+      return null;
+    }
+    return this.subrubros().find(subrubro => subrubro.ID == id);
   }
 
   getRubroNameById(id: number | undefined){
