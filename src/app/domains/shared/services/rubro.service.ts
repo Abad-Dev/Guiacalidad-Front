@@ -50,4 +50,12 @@ export class RubroService {
     return this.rubros().find((rubro) => rubro.ID == id)?.NAME
   }
 
+  getSubRubrosByRubroId(id: number | undefined) {
+    if (!id){
+      return []
+    }
+
+    return this.subrubros().filter((subrubro) => subrubro.RUBRO_ID == id);
+  }
+
 }

@@ -1,5 +1,5 @@
 <header class="w-full">
-    <nav class="flex flex-wrap justify-between items-center py-1 border-gray-200 dark:bg-gray-900 container mx-auto p-5">
+    <nav class="flex flex-wrap justify-between items-center py-0 border-gray-200 dark:bg-gray-900 container mx-auto p-5">
         <a routerLink="/" class="flex items-center logo my-5">
             <img src="../../../../../assets/banner-logo.png" class="mr-2 h-14" alt="Flowbite Logo" />
             <div class="flex flex-col">
@@ -19,7 +19,24 @@
     </nav>
 </header>
 
-<div class="container mx-auto py-5 px-2">
+<div class="container mx-auto links-container">
+    <a>
+        :: Quienes Somos
+    </a>
+    <a>
+        :: Atencion al Cliente
+    </a>
+    <a>
+        :: Servicios Web
+    </a>
+    <a>
+        :: Recomendados
+    </a>
+    <a>
+        :: Suscripciones
+    </a>
+</div>
+<div class="container mx-auto py-6 px-2">
     <router-outlet />
 </div>
 

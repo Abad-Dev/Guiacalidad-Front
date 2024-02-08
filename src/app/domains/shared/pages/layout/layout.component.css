@@ -13,6 +13,29 @@ nav a.logo span{
     font-size: 30px;
 }
 
+.links-container{
+    display: flex;
+}
+
+.links-container a{
+    text-align: center;
+    flex-grow: 1;
+    padding: 10px 15px;
+    border-right: 2px solid rgb(226 232 240);
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.links-container a:hover{
+    background-color: rgb(226 232 240);
+}
+
+.links-container a:last-child{
+    border-right: none;
+}
+
+
 @media (prefers-color-scheme: light) {
     nav .active{
         color: white !important;
