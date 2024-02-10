@@ -22,10 +22,3 @@
     background-image: url("../../../../../assets/banner-images-006.jpg");
 }
 
-#default-carousel{
-    height: 460px;
-}
-
-#default-carousel data-carousel-item{
-    height: 100%;
-}
