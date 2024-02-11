@@ -17,6 +17,7 @@ export class LayoutComponent {
   rubroService = inject(RubroService);
 
   navbarOpened = signal<boolean>(false);
+  sidebarOpened = signal<boolean>(false);
 
   searchCtrl = new FormControl('',{
     nonNullable: true,
@@ -27,12 +28,14 @@ export class LayoutComponent {
     ]
   });
 
-  constructor(private router: Router) {
-    // ...
-  }
+  constructor(private router: Router) { }
 
   toggleNavbar = () => {
     this.navbarOpened.update(b => !b);
+  }
+
+  toggleSideMenu = () => {
+    this.sidebarOpened.update(b => !b);
   }
 
   handleChangeRoute = () => {

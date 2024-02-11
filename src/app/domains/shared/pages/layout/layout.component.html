@@ -27,14 +27,44 @@
         :: Atencion al Cliente
     </a>
     <a>
-        :: Servicios Web
-    </a>
-    <a>
         :: Recomendados
     </a>
     <a>
         :: Suscripciones
     </a>
+    <a (click)="toggleSideMenu()">
+        :: Rubros
+    </a>
+</div>
+
+<div [class.hidden]="!sidebarOpened()" class="w-full h-screen fixed top-0 left-0 z-30" style="background-color: rgba(0, 0, 0, 0.45);">
+
+</div>
+
+<div
+class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-auto transition-transform bg-white"
+[class.translate-x-full]="!sidebarOpened()"
+>
+<div class="flex justify-between items-center">
+    <p class="text-xl">Rubros</p>
+    <button class="p-2" (click)="toggleSideMenu()">
+      
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+  </div>
 </div>
 <div class="container mx-auto py-6 px-2">
     <router-outlet />
