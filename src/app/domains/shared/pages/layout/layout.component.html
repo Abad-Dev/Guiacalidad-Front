@@ -20,16 +20,16 @@
 </header>
 
 <div class="container mx-auto links-container">
-    <a>
+    <a routerLink="/" id="quienes-somos">
         :: Quienes Somos
     </a>
-    <a>
+    <a routerLink="/atencion-al-cliente">
         :: Atencion al Cliente
     </a>
-    <a>
+    <a routerLink="/recomendados">
         :: Recomendados
     </a>
-    <a>
+    <a routerLink="/suscripciones">
         :: Suscripciones
     </a>
     <a (click)="toggleSideMenu()">
@@ -45,7 +45,7 @@
 class="fixed top-0 right-0 bg-red z-40 w-72 h-screen  overflow-y-auto transition-transform bg-white"
 [class.translate-x-full]="!sidebarOpened()"
 >
-<div class="flex flex-col w-full">
+<div class="flex flex-col w-full max-h-screen">
     <div class="flex justify-between items-between w-full p-4 bg-guia text-white">
         <p class="text-xl">Rubros:</p>
         <button (click)="toggleSideMenu()">
@@ -66,7 +66,7 @@ class="fixed top-0 right-0 bg-red z-40 w-72 h-screen  overflow-y-auto transition
         </svg>
         </button>
     </div>
-    <div class="rubros-container p-4 pt-0">
+    <div class="rubros-container p-4 pt-0 overflow-y-scroll">
         <ul class="pl-3" style="list-style-type: ':: ';">
             @for (rubro of rubros(); track $index) {
                 <li (click)="toggleSideMenu()" class="text-guia my-4 cursor-pointer hover:underline" [routerLink]="['rubro', rubro.ID,]">

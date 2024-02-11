@@ -7,11 +7,12 @@ import { AnuncianteComponent } from '../../../anunciantes/components/anunciante/
 import { Anunciante } from '../../../shared/models/anunciante.model';
 import { RouterLinkWithHref } from '@angular/router';
 import { Rubro } from '../../../shared/models/rubro.model';
+import { ReclamosComponent } from '../../../shared/components/reclamos/reclamos.component';
 
 @Component({
   selector: 'app-subrubro',
   standalone: true,
-  imports: [RubrostableComponent, AnuncianteComponent, RouterLinkWithHref],
+  imports: [RubrostableComponent, AnuncianteComponent, RouterLinkWithHref, ReclamosComponent],
   templateUrl: './subrubro.component.html',
   styleUrl: './subrubro.component.css'
 })

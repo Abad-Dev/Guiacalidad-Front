@@ -4,11 +4,12 @@ import { AnuncianteService } from '../../../shared/services/anunciante.service';
 import { RubroService } from '../../../shared/services/rubro.service';
 import { AnuncianteComponent } from '../../../anunciantes/components/anunciante/anunciante.component';
 import { RubrostableComponent } from '../../../shared/components/rubrostable/rubrostable.component';
+import { ReclamosComponent } from '../../../shared/components/reclamos/reclamos.component';
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [AnuncianteComponent, RubrostableComponent],
+  imports: [AnuncianteComponent, RubrostableComponent, ReclamosComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
   encapsulation: ViewEncapsulation.None

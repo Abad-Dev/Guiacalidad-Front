@@ -1,38 +1,26 @@
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-white text-gray-700 uppercase bg-guia">
-            <tr>
-                <th class="p-5 w-1/2">
-                    Rubro
-                </th>
-                <th class="p-5 w-1/2">
-                    Subrubro
-                </th>
-            </tr>
-        </thead>
-        <tbody >
-            <tr class="bg-white border-b cursor-pointer text-gray-800">
-                @if (rubro() != undefined) {
-                    <td class="p-5 w-1/2 border-r-4 hover:bg-gray-100" [routerLink]="['/rubro', rubro()!.ID,]">
-                        {{ rubro()!.NAME }}
-                    </td>
-                }
-                <td class="p-5 w-1/2 hover:bg-gray-100">
-                    @if (subrubro() != undefined) {
-                        {{ subrubro().NAME }}
-                    }
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<h1 [routerLink]="['/rubro', rubro()?.ID]" class="text-guia text-3xl mb-2 hover:underline cursor-pointer">
+    @if (rubro() != undefined) {
+        > {{ rubro()!.NAME }}
+    }   
+</h1>
+<h2 class="text-2xl pl-5 text-guia">
+    @if (subrubro() != undefined) {
+        :: {{ subrubro().NAME }}
+    }
+</h2>
+<hr class="my-4">
+
+<p class="text-slate-400 mb-4">Listado de Anunciantes:</p>
+<div class="w-full flex justify-center">
+    @for (anunciante of anunciantes(); track $index) {
+        @if (anunciante != undefined) {
+            <div class="lg:w-1/2">
+                <anunciante-component
+                [anunciante]="anunciante"
+                />
+            </div>
+        }
+    }
 </div>
 
-@for (anunciante of anunciantes(); track $index) {
-    @if (anunciante != undefined) {
-        <div class="lg:w-1/2">
-            <anunciante-component
-            [anunciante]="anunciante"
-            />
-        </div>
-    }
-}
+<app-reclamos />

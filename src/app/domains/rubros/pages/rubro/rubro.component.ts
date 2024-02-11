@@ -1,4 +1,4 @@
-import { Component, Input, computed, inject } from '@angular/core';
+import { Component, Input, SimpleChanges, computed, inject, signal } from '@angular/core';
 import { RubroService } from '../../../shared/services/rubro.service';
 import { Rubro } from '../../../shared/models/rubro.model';
 import { SubRubro } from '../../../shared/models/subrubro.model';
@@ -12,15 +12,16 @@ import { RouterLinkWithHref } from '@angular/router';
   styleUrl: './rubro.component.css'
 })
 export class RubroComponent {
-  @Input({ required: true }) id?: number;
+  @Input({ required: true }) id!: number;
 
-  
+  signalId = signal<number>(this.id);
+
   rubroService = inject(RubroService);
 
   rubro = computed<Rubro | undefined>(() => {
-    const id = this.id;
+    const id = this.signalId();
     const rubros = this.rubroService.rubros();
-
+    
     if (id == undefined){
       return undefined
     }
@@ -29,9 +30,17 @@ export class RubroComponent {
   })
 
   subrubros = computed<SubRubro[]>(() => {
+    const id = this.signalId();
     const rubros = this.rubroService.rubros();
     const subrubros = this.rubroService.subrubros();
     
     return this.rubroService.getSubRubrosByRubroId(this.id)!;
   })
+
+  ngOnInit() {
+    this.signalId.set(this.id);
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    this.signalId.set(changes["id"].currentValue)
+  }
 }

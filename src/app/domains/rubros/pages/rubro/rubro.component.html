@@ -3,24 +3,25 @@
 </h1>
 <hr>
 
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg w-full my-5 lg:w-1/2">
-<table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-    <thead class="text-guia text-gray-700 uppercase bg-gray-100">
-        <tr>
-            <th class="p-5 w-1/2">
-                Listado de Subrubros:
-            </th>
-        </tr>
-    </thead>
-    <tbody >
-        @for (subrubro of subrubros(); track $index) {
-            <tr [routerLink]="['/subrubro', subrubro.ID,]" class="bg-white border-b hover:bg-gray-50 cursor-pointer text-gray-800">
-                <td class="p-5 w-1/2">
-                    {{ subrubro.NAME }}
-                </td>
+<div class="w-full flex justify-center">
+    <div class="overflow-x-auto shadow-md sm:rounded-lg w-full my-5 lg:w-1/2">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+        <thead class="text-white bg-guia text-gray-700 uppercase">
+            <tr>
+                <th class="p-5 w-1/2">
+                    Listado de Subrubros:
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody >
+            @for (subrubro of subrubros(); track $index) {
+                <tr [routerLink]="['/subrubro', subrubro.ID,]" class="bg-white border-b hover:bg-gray-50 cursor-pointer text-gray-800">
+                    <td class="p-5 w-1/2">
+                        {{ subrubro.NAME }}
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
 </div>
-
