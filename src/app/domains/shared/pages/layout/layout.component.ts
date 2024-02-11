@@ -18,6 +18,7 @@ export class LayoutComponent {
 
   navbarOpened = signal<boolean>(false);
   sidebarOpened = signal<boolean>(false);
+  rubros = this.rubroService.rubros;
 
   searchCtrl = new FormControl('',{
     nonNullable: true,
