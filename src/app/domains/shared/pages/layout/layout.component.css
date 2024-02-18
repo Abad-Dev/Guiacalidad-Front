@@ -21,7 +21,7 @@ nav a.logo span{
     text-align: center;
     flex-grow: 1;
     padding: 10px 15px;
-    border-right: 2px solid rgb(226 232 240);
+    border-left: 2px solid rgb(226 232 240);
     cursor: pointer;
     color: var(--primary-color);
     font-weight: 500;
@@ -31,8 +31,8 @@ nav a.logo span{
     background-color: rgb(226 232 240);
 }
 
-.links-container a:last-child{
-    border-right: none;
+.links-container a:first-child{
+    border-left: none;
 }
 
 
