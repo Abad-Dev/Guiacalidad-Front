@@ -17,6 +17,7 @@ export class LayoutComponent {
   rubroService = inject(RubroService);
 
   navbarOpened = signal<boolean>(false);
+  linksBarOpened = signal<boolean>(false);
   sidebarOpened = signal<boolean>(false);
   rubros = this.rubroService.rubros;
 
@@ -31,6 +32,10 @@ export class LayoutComponent {
 
   constructor(private router: Router) { }
 
+  toggleLinksBar = () => {
+    this.linksBarOpened.update(b => !b);
+  }
+
   toggleNavbar = () => {
     this.navbarOpened.update(b => !b);
   }
@@ -41,6 +46,7 @@ export class LayoutComponent {
 
   handleChangeRoute = () => {
     this.navbarOpened.set(false);
+    this.linksBarOpened.set(false);
   }
 
   handleSearch = () => {

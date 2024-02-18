@@ -13,13 +13,10 @@ nav a.logo span{
     font-size: 30px;
 }
 
-.links-container{
-    display: flex;
-}
-
 .links-container a{
-    text-align: center;
+    display: flex;
     flex-grow: 1;
+    text-align: center;
     padding: 10px 15px;
     border-left: 2px solid rgb(226 232 240);
     cursor: pointer;
@@ -42,3 +39,17 @@ nav a.logo span{
     }
     
   }
+
+
+@media (max-width: 1023px) {
+    .links-container a{
+        font-size: .95rem;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 767px) {
+    .links-container a{
+        border: none;
+    }
+}

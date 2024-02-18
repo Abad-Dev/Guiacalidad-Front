@@ -1,13 +1,13 @@
 <header class="w-full">
-    <nav class="flex flex-wrap justify-between items-center py-0 border-gray-200 dark:bg-gray-900 container mx-auto p-5">
-        <a routerLink="/" class="flex items-center logo my-5">
+    <nav class="flex flex-wrap justify-center lg:justify-between items-center border-gray-200 dark:bg-gray-900 container mx-auto py-5 px-2">
+        <a routerLink="/" class="flex items-center logo mb-4 lg:mb-0">
             <img src="../../../../../assets/banner-logo.png" class="mr-2 h-14" alt="Flowbite Logo" />
             <div class="flex flex-col">
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">GuiaCalidad</span>
                 <small class="text-white font-semibold self-end">Publicidad Responsable</small>
             </div>
         </a>
-        <div class="relative" style="width: 500px;">
+        <div class="relative ms-1 sm:ms-10" style="width: 500px;">
             <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
@@ -19,33 +19,33 @@
     </nav>
 </header>
 
-<div class="container mx-auto mt-4 flex">
-    <div class="hidden w-full md:block md:w-auto grow">
-        <div class="links-container">
-            <a routerLink="/" id="quienes-somos">
-                :: Quienes Somos
-            </a>
-            <a routerLink="/atencion-al-cliente">
-                :: Atencion al Cliente
-            </a>
-            <a routerLink="/recomendados">
-                :: Recomendados
-            </a>
-            <a routerLink="/suscripciones">
-                :: Suscripciones
-            </a>
-            <a (click)="toggleSideMenu()">
-                :: Rubros
-            </a>
-        </div>
-    </div>
-    <button data-collapse-toggle="navbar-default" type="button" class="ms-auto items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+<div class="container mx-auto flex flex-col px-2">
+    <button (click)="toggleLinksBar()" data-collapse-toggle="navbar-default" type="button" class="my-3 ms-auto items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
         </svg>
     </button>
+    <div [class.hidden]="!linksBarOpened()" class="w-full md:flex md:flex-row md:w-auto grow links-container bg-gray-100 md:bg-transparent rounded-lg">
+        <a (click)="handleChangeRoute()" routerLink="/" id="quienes-somos" class="md:justify-center">
+            :: Quienes Somos
+        </a>
+        <a (click)="handleChangeRoute()" routerLink="/atencion-al-cliente" class="md:justify-center">
+            :: Atencion al Cliente
+        </a>
+        <a (click)="handleChangeRoute()" routerLink="/recomendados" class="md:justify-center">
+            :: Recomendados
+        </a>
+        <a (click)="handleChangeRoute()" routerLink="/suscripciones" class="md:justify-center">
+            :: Suscripciones
+        </a>
+        <a (click)="toggleSideMenu()" class="md:justify-center">
+            :: Rubros
+        </a>
+    </div>
+    
 </div>
+
 
 <div [class.hidden]="!sidebarOpened()" (click)="toggleSideMenu()" class="w-full h-screen fixed top-0 left-0 z-30" style="background-color: rgba(0, 0, 0, 0.45);">
 
